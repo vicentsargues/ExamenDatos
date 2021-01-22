@@ -1,0 +1,64 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Nuevo Producto
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+<ion-button [routerLink]="['/misventas/']" >Ventas</ion-button>
+
+  <ion-input placeholder="Nombre " [(ngModel)]="Nombre"></ion-input>
+  <ion-input placeholder="Descripcion" [(ngModel)]="Descripcion"></ion-input>
+  <ion-input placeholder="Precio" [(ngModel)]="Precio"></ion-input>
+<ion-button (click)="oculto=1" >Motor</ion-button>
+<ion-button (click)="oculto=2" >Inmobiliaria </ion-button>
+<ion-button (click)="oculto=3" >Tecnologia</ion-button>
+<div *ngIf ="oculto == 1" >  
+  <ion-input placeholder="Año" [(ngModel)]="Ano"></ion-input>
+  <ion-input placeholder="Km" [(ngModel)]="Km" ></ion-input>
+  <ion-list>
+    <ion-button (click)="insert1C()" >Insertar Coche</ion-button>
+    <ion-button (click)="insert1M()" >Insertar Moto</ion-button>
+  </ion-list>
+</div>
+<div *ngIf ="oculto == 2" >  
+  <ion-input placeholder="Metros Cuadrados" [(ngModel)]="Metros"></ion-input>
+  <ion-input placeholder="Numero de Habitaciones" [(ngModel)]="Habitaciones"></ion-input>
+  <ion-input placeholder="Numero de Baños" [(ngModel)]="Banos"></ion-input>
+  <ion-input placeholder="Localidad" [(ngModel)]="Localidad"></ion-input>
+  <ion-button (click)="insert2()" >Insertar Mobiliario</ion-button>
+</div>
+<div *ngIf ="oculto == 3" >  
+  <ion-button (click)="insert3N()" >Insertar Como Nuevo</ion-button>
+  <ion-button (click)="insert3U()" >Insertar Como Usado</ion-button>
+</div>
+
+
+<br><br><br>
+<ion-title>
+  Lista Productos
+</ion-title>
+<div>
+<ion-card *ngFor="let item of Productos">
+<ion-card-header>
+<ion-card-title>Producto {{item.Nombre}} ({{item.Precio}} €)</ion-card-title>
+</ion-card-header>
+<ion-card-content>
+  <ion-label>Tipo :</ion-label>
+{{item.Tipo}}
+<br>
+  
+<ion-label>Descripcion :</ion-label>
+{{item.Descripcion}}
+<br>
+<ion-button [routerLink]="['/details/',item.Id]" >Detalles</ion-button>
+</ion-card-content>
+</ion-card>
+</div>
+
+
+</ion-content>

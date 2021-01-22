@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Nuevo Producto
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+<br><br><br>
+<ion-title>
+  Lista Ventas
+</ion-title>
+<div>
+<ion-card *ngFor="let item of Ventas">
+<ion-card-header>
+<ion-card-title>Producto {{item.Nombre}} ({{item.Precio}} €)</ion-card-title>
+</ion-card-header>
+<ion-card-content>
+<ion-input placeholder="Puntuacion de 1 a 5" [(ngModel)]="Puntuacion"></ion-input>
+  <ion-button (click)="enviar(item.Id,item.Nombre,item.Preciogit)" >Insertar Como Enviado</ion-button>
+<br>
+
+</ion-card-content>
+</ion-card>
+</div>
+
+
+</ion-content>

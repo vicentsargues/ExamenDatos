@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{Nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-card >
+<ion-card-header>
+<ion-card-title>Producto {{Nombre}} ({{Precio}} €)</ion-card-title>
+</ion-card-header>
+<ion-card-content>
+<ion-label>Tipo :</ion-label>
+{{Tipo}}
+<br> 
+<ion-label>Descripcion :</ion-label>
+{{Descripcion}}
+<br>
+<div *ngIf ="Tipo == 'Motor'" >  
+<ion-label>KM :</ion-label>
+{{Km}}
+<br> 
+<ion-label>Ano :</ion-label>
+{{Ano}}
+<br> 
+<ion-label>Tipo Vehiculo :</ion-label>
+{{TipoC}}
+
+</div>
+<div *ngIf ="Tipo == 'Hogar'" >  
+<ion-label>Metros :</ion-label>
+{{Metros}}
+<br> 
+<ion-label>Habitaciones :</ion-label>
+{{Habitaciones}}
+<br>
+<ion-label>Banos :</ion-label>
+{{Banos}}
+<br> 
+<ion-label>Localidad :</ion-label>
+{{Localidad}}
+</div>
+<div *ngIf ="Tipo == 'Tec'" >  
+<ion-label>Estado :</ion-label>
+{{estado}}
+
+</div>
+</ion-card-content>
+</ion-card>
+
+
+</ion-content>
